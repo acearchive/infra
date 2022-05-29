@@ -5,9 +5,7 @@ terraform {
       version = "~> 3.0"
     }
   }
-}
 
-terraform {
   cloud {
     organization = "acearchive"
 
