@@ -1,4 +1,4 @@
-resource "cloudflare_record" "acearchive_apex_cname" {
+resource "cloudflare_record" "apex_cname" {
   zone_id = data.cloudflare_zone.acearchive.id
   type = "CNAME"
   name = "@"
@@ -6,7 +6,7 @@ resource "cloudflare_record" "acearchive_apex_cname" {
   proxied = true
 }
 
-resource "cloudflare_record" "acearchive_hha_cname" {
+resource "cloudflare_record" "hha_cname" {
   zone_id = data.cloudflare_zone.acearchive.id
   type = "CNAME"
   name = "hha"
@@ -14,7 +14,7 @@ resource "cloudflare_record" "acearchive_hha_cname" {
   proxied = true
 }
 
-resource "cloudflare_record" "acearchive_www_aaaa" {
+resource "cloudflare_record" "www_aaaa" {
   zone_id = data.cloudflare_zone.acearchive.id
   type = "AAAA"
   name = "www"
@@ -22,7 +22,7 @@ resource "cloudflare_record" "acearchive_www_aaaa" {
   proxied = true
 }
 
-resource "cloudflare_record" "acearchive_apex_mx" {
+resource "cloudflare_record" "apex_mx" {
   for_each = {
     route1 = {
       value = "route1.mx.cloudflare.net"
@@ -46,7 +46,7 @@ resource "cloudflare_record" "acearchive_apex_mx" {
   proxied = false
 }
 
-resource "cloudflare_record" "acearchive_apex_txt_spf" {
+resource "cloudflare_record" "apex_txt_spf" {
   zone_id = data.cloudflare_zone.acearchive.id
   type = "TXT"
   name = "@"
@@ -54,7 +54,7 @@ resource "cloudflare_record" "acearchive_apex_txt_spf" {
   proxied = false
 }
 
-resource "cloudflare_record" "acearchive_txt_dmark" {
+resource "cloudflare_record" "txt_dmark" {
   zone_id = data.cloudflare_zone.acearchive.id
   type = "TXT"
   name = "_dmarc"
@@ -62,26 +62,10 @@ resource "cloudflare_record" "acearchive_txt_dmark" {
   proxied = false
 }
 
-resource "cloudflare_record" "acearchive_txt_domainkey" {
+resource "cloudflare_record" "txt_domainkey" {
   zone_id = data.cloudflare_zone.acearchive.id
   type = "TXT"
   name = "*._domainkey"
   value = "v=DKIM1; p="
   proxied = false
-}
-
-resource "cloudflare_record" "nothingradical_apex_cname" {
-  zone_id = data.cloudflare_zone.nothingradical.id
-  type = "CNAME"
-  name = "@"
-  value = "nothingradical-blog.pages.dev"
-  proxied = true
-}
-
-resource "cloudflare_record" "nothingradical_www_aaaa" {
-  zone_id = data.cloudflare_zone.nothingradical.id
-  type = "AAAA"
-  name = "www"
-  value = "100::"
-  proxied = true
 }
