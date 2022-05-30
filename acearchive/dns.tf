@@ -54,7 +54,7 @@ resource "cloudflare_record" "apex_txt_spf" {
   proxied = false
 }
 
-resource "cloudflare_record" "txt_dmark" {
+resource "cloudflare_record" "txt_dmarc" {
   zone_id = data.cloudflare_zone.acearchive.id
   type = "TXT"
   name = "_dmarc"
