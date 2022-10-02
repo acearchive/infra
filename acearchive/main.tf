@@ -21,6 +21,10 @@ terraform {
 
 provider "cloudflare" {
   api_token = var.cloudflare_api_token
+
+  # This argument is deprecated, but still necessary. See this issue:
+  # https://github.com/cloudflare/terraform-provider-cloudflare/issues/1365
+  account_id = var.cloudflare_account_id
 }
 
 # https://developers.cloudflare.com/r2/examples/terraform/
