@@ -28,28 +28,12 @@ resource "cloudflare_pages_project" "acearchive" {
       environment_variables = {
         HUGO_VERSION = "0.104.0"
       }
-
-      kv_namespaces = {
-        ARTIFACTS_KV = cloudflare_workers_kv_namespace.artifacts.id
-      }
-
-      r2_buckets = {
-        ARTIFACTS_R2 = aws_s3_bucket.artifacts.bucket
-      }
     }
 
     preview {
       environment_variables = {
         HUGO_BASEURL = "/"
         HUGO_VERSION = "0.104.0"
-      }
-
-      kv_namespaces = {
-        ARTIFACTS_KV = cloudflare_workers_kv_namespace.artifacts.id
-      }
-
-      r2_buckets = {
-        ARTIFACTS_R2 = aws_s3_bucket.artifacts.bucket
       }
     }
   }
