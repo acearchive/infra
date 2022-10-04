@@ -29,8 +29,12 @@ resource "cloudflare_pages_project" "acearchive" {
         HUGO_VERSION = "0.104.0"
       }
 
+      kv_namespaces = {
+        ARTIFACTS_KV = cloudflare_workers_kv_namespace.artifacts.id
+      }
+
       r2_buckets = {
-        ARTIFACTS = aws_s3_bucket.artifacts.bucket
+        ARTIFACTS_R2 = aws_s3_bucket.artifacts.bucket
       }
     }
 
@@ -40,8 +44,12 @@ resource "cloudflare_pages_project" "acearchive" {
         HUGO_VERSION = "0.104.0"
       }
 
+      kv_namespaces = {
+        ARTIFACTS_KV = cloudflare_workers_kv_namespace.artifacts.id
+      }
+
       r2_buckets = {
-        ARTIFACTS = aws_s3_bucket.artifacts.bucket
+        ARTIFACTS_R2 = aws_s3_bucket.artifacts.bucket
       }
     }
   }
