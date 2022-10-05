@@ -18,8 +18,3 @@ variable "r2_secret_access_key" {
   type = string
   description = "Cloudflare R2 Secret Access Key"
 }
-
-variable "artifact_files_root_ipns" {
-  type = string
-  description = "The IPNS name for the root of the artifact file DAG"
-}
