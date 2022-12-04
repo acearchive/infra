@@ -23,6 +23,7 @@ resource "cloudflare_zone_settings_override" "nothingradical" {
     ipv6 = "on"
     ssl = "strict"
     security_level = "medium"
+    min_tls_version = "1.2"
     tls_1_3 = "zrt"
     zero_rtt = "on"
 
