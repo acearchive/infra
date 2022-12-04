@@ -31,7 +31,7 @@ resource "cloudflare_ruleset" "rate_limiting" {
 
     expression = "not cf.bot_management.verified_bot"
     description = "Rate-Limiting"
-    enabled = true
+    enabled = false
   }
 }
 
