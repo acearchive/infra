@@ -11,7 +11,7 @@ resource "cloudflare_ruleset" "etags" {
       respect_strong_etags = true
     }
 
-    expression = "(http.host in {\"files.acearchive.lgbt\" \"api.acearchive.lgbt\"})"
+    expression = "(http.host in {\"files.acearchive.lgbt\" \"api.acearchive.lgbt\" \"hha.acearchive.lgbt\"})"
     description = "Enable Strong ETags"
     enabled = true
   }
