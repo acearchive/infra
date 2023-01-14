@@ -14,7 +14,7 @@ resource "cloudflare_ruleset" "rate_limiting" {
       ]
 
       period = 10
-      requests_per_period = 20
+      requests_per_period = 50
       mitigation_timeout = 10
     }
 
@@ -31,7 +31,7 @@ resource "cloudflare_ruleset" "rate_limiting" {
 
     expression = "not cf.bot_management.verified_bot"
     description = "Rate-Limiting"
-    enabled = false
+    enabled = true
   }
 }
 
