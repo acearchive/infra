@@ -1,8 +1,8 @@
 terraform {
   required_providers {
     cloudflare = {
-      source = "cloudflare/cloudflare"
-      version = "~> 4.8.0"
+      source  = "cloudflare/cloudflare"
+      version = "~> 4.16"
     }
     aws = {
       source  = "hashicorp/aws"
@@ -26,10 +26,10 @@ provider "cloudflare" {
 # https://developers.cloudflare.com/r2/examples/terraform/
 provider "aws" {
   skip_credentials_validation = true
-  skip_region_validation = true
-  skip_requesting_account_id = true
+  skip_region_validation      = true
+  skip_requesting_account_id  = true
 
-  region = "auto"
+  region     = "auto"
   access_key = var.r2_access_key_id
   secret_key = var.r2_secret_access_key
 
