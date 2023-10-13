@@ -6,6 +6,11 @@ resource "aws_s3_bucket" "artifacts_dev" {
   bucket = "acearchive-lgbt-artifacts-dev"
 }
 
+# The purpose of this bucket is to give us (me) a place to manually upload files
+# that don't have a direct-download link on the web. For example, if I write a
+# transcript, I can upload it to this bucket using the Cloudflare dashboard and
+# use that URL in the artifact submission. This bucket is configured to be
+# publicly accessible.
 resource "aws_s3_bucket" "staging" {
   bucket = "acearchive-lgbt-staging"
 }
