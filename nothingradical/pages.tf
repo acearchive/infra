@@ -4,7 +4,7 @@ resource "cloudflare_pages_project" "nothingradical" {
   production_branch = "main"
 
   build_config {
-    build_command = "hugo"
+    build_command   = "hugo"
     destination_dir = "public"
   }
 
@@ -12,14 +12,14 @@ resource "cloudflare_pages_project" "nothingradical" {
     type = "github"
 
     config {
-      owner = "frawleyskid"
-      repo_name = "nothingradical.blog"
-      production_branch = "main"
-      pr_comments_enabled = false
-      deployments_enabled = true
+      owner                         = "frawleyskid"
+      repo_name                     = "nothingradical.blog"
+      production_branch             = "main"
+      pr_comments_enabled           = false
+      deployments_enabled           = true
       production_deployment_enabled = true
-      preview_deployment_setting = "custom"
-      preview_branch_includes = ["dev"]
+      preview_deployment_setting    = "custom"
+      preview_branch_includes       = ["dev"]
     }
   }
 
