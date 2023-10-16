@@ -39,24 +39,8 @@ resource "cloudflare_pages_project" "nothingradical" {
   }
 }
 
-// I'm currently getting the following error trying to apply this resource:
-//
-// ```
-// Error: error creating domain for project "REDACTED": Domain is unavailable
-// (8000018)
-// ```
-//
-// Someone has opened an issue on GitHub:
-//
-// https://github.com/cloudflare/terraform-provider-cloudflare/issues/1946
-//
-// Interestingly, applying this resource does seem to create the domain in
-// Cloudflare, but it still fails in Terraform.
-
-/*
 resource "cloudflare_pages_domain" "nothingradical" {
-  account_id = var.cloudflare_account_id
+  account_id   = var.cloudflare_account_id
   project_name = cloudflare_pages_project.nothingradical.name
-  domain = "nothingradical.blog"
+  domain       = "nothingradical.blog"
 }
-*/
