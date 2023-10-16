@@ -26,14 +26,14 @@ resource "cloudflare_pages_project" "acearchive" {
   deployment_configs {
     production {
       environment_variables = {
-        HUGO_VERSION = "0.104.0"
+        HUGO_VERSION = "0.119.0"
       }
     }
 
     preview {
       environment_variables = {
         HUGO_BASEURL = "/"
-        HUGO_VERSION = "0.104.0"
+        HUGO_VERSION = "0.119.0"
       }
     }
   }
@@ -67,15 +67,15 @@ resource "cloudflare_pages_project" "hha" {
   deployment_configs {
     production {
       environment_variables = {
-        GO_VERSION   = "1.17"
-        NODE_VERSION = "17.2.0"
+        GO_VERSION   = "1.21"
+        NODE_VERSION = "18.18.2"
       }
     }
 
     preview {
       environment_variables = {
-        GO_VERSION   = "1.17"
-        NODE_VERSION = "17.2.0"
+        GO_VERSION   = "1.21"
+        NODE_VERSION = "18.18.2"
       }
     }
   }
