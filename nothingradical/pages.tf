@@ -26,14 +26,14 @@ resource "cloudflare_pages_project" "nothingradical" {
   deployment_configs {
     production {
       environment_variables = {
-        HUGO_VERSION = "0.104.0"
+        HUGO_VERSION = "0.119.0"
       }
     }
 
     preview {
       environment_variables = {
         HUGO_BASEURL = "/"
-        HUGO_VERSION = "0.104.0"
+        HUGO_VERSION = "0.119.0"
       }
     }
   }
