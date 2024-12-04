@@ -14,6 +14,14 @@ resource "cloudflare_record" "hha_cname" {
   proxied = true
 }
 
+resource "cloudflare_record" "umami_cname" {
+  zone_id = data.cloudflare_zone.acearchive.id
+  type    = "CNAME"
+  name    = "umami"
+  value   = "truthful-silkworm.pikapod.net"
+  proxied = false
+}
+
 resource "cloudflare_record" "www_aaaa" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "AAAA"
