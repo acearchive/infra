@@ -14,12 +14,12 @@ resource "cloudflare_pages_project" "acearchive" {
     config {
       owner                         = "acearchive"
       repo_name                     = "acearchive.lgbt"
-      production_branch             = "main"
+      production_branch             = "prod"
       pr_comments_enabled           = true
       deployments_enabled           = true
       production_deployment_enabled = true
       preview_deployment_setting    = "custom"
-      preview_branch_includes       = ["dev"]
+      preview_branch_includes       = ["main"]
     }
   }
 
@@ -60,7 +60,6 @@ resource "cloudflare_pages_project" "hha" {
       deployments_enabled           = true
       production_deployment_enabled = true
       preview_deployment_setting    = "custom"
-      preview_branch_includes       = ["dev"]
     }
   }
 

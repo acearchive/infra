@@ -2,7 +2,7 @@ resource "cloudflare_record" "apex_cname" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "CNAME"
   name    = "@"
-  value   = cloudflare_pages_project.acearchive.subdomain
+  content = cloudflare_pages_project.acearchive.subdomain
   proxied = true
 }
 
@@ -18,7 +18,7 @@ resource "cloudflare_record" "hha_cname" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "CNAME"
   name    = "hha"
-  value   = cloudflare_pages_project.hha.subdomain
+  content = cloudflare_pages_project.hha.subdomain
   proxied = true
 }
 
@@ -26,7 +26,7 @@ resource "cloudflare_record" "umami_cname" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "CNAME"
   name    = "umami"
-  value   = "truthful-silkworm.pikapod.net"
+  content = "truthful-silkworm.pikapod.net"
   proxied = false
 }
 
@@ -34,7 +34,7 @@ resource "cloudflare_record" "www_aaaa" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "AAAA"
   name    = "www"
-  value   = "100::"
+  content = "100::"
   proxied = true
 }
 
@@ -42,7 +42,7 @@ resource "cloudflare_record" "apex_txt_sl_verification" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "TXT"
   name    = "@"
-  value   = "sl-verification=fxncjuftchgummqcrwzrpmyucobgvg"
+  content = "sl-verification=fxncjuftchgummqcrwzrpmyucobgvg"
   proxied = false
 }
 
@@ -61,7 +61,7 @@ resource "cloudflare_record" "apex_mx" {
   zone_id  = data.cloudflare_zone.acearchive.id
   type     = "MX"
   name     = "@"
-  value    = each.value.value
+  content  = each.value.value
   priority = each.value.priority
   proxied  = false
 }
@@ -70,7 +70,7 @@ resource "cloudflare_record" "apex_txt_spf" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "TXT"
   name    = "@"
-  value   = "v=spf1 include:simplelogin.co ~all"
+  content = "v=spf1 include:simplelogin.co ~all"
   proxied = false
 }
 
@@ -95,7 +95,7 @@ resource "cloudflare_record" "apex_cname_dkim" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "CNAME"
   name    = each.value.name
-  value   = each.value.value
+  content = each.value.value
   proxied = false
 }
 
@@ -103,6 +103,6 @@ resource "cloudflare_record" "apex_txt_dmarc" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "TXT"
   name    = "_dmarc"
-  value   = "v=DMARC1; p=quarantine; pct=100; adkim=s; aspf=s"
+  content = "v=DMARC1; p=quarantine; pct=100; adkim=s; aspf=s"
   proxied = false
 }
