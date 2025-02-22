@@ -1,7 +1,7 @@
 resource "cloudflare_pages_project" "acearchive" {
   account_id        = var.cloudflare_account_id
   name              = "acearchive-lgbt"
-  production_branch = "main"
+  production_branch = "prod"
 
   build_config {
     build_command   = "npm install && npm run build"
