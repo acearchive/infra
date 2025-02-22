@@ -13,12 +13,12 @@ resource "cloudflare_ruleset" "www_forward" {
         status_code = 301
 
         target_url {
-          expression = "concat(\"https://acearchive.lgbt\", http.request.uri.path)"
+          expression = "concat(\"https://${data.cloudflare_zone.acearchive.name}\", http.request.uri.path)"
         }
       }
     }
 
-    expression  = "(http.host == \"www.acearchive.lgbt\")"
+    expression  = "(http.host == \"www.${data.cloudflare_zone.acearchive.name}\")"
     description = "Redirect visitors to the apex domain"
     enabled     = true
   }
