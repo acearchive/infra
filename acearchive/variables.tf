@@ -20,3 +20,8 @@ variable "r2_secret_access_key" {
   description = "Cloudflare R2 Secret Access Key"
   sensitive   = true
 }
+
+variable "cloudflare_access_emails" {
+  type        = list(string)
+  description = "Cloudflare Access email list"
+}

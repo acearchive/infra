@@ -84,11 +84,17 @@ resource "cloudflare_pages_project" "hha" {
 resource "cloudflare_pages_domain" "acearchive" {
   account_id   = var.cloudflare_account_id
   project_name = cloudflare_pages_project.acearchive.name
-  domain       = "acearchive.lgbt"
+  domain       = data.cloudflare_zone.acearchive.name
+}
+
+resource "cloudflare_pages_domain" "acearchive_dev" {
+  account_id   = var.cloudflare_account_id
+  project_name = cloudflare_pages_project.acearchive.name
+  domain       = "dev.${data.cloudflare_zone.acearchive.name}"
 }
 
 resource "cloudflare_pages_domain" "hha" {
   account_id   = var.cloudflare_account_id
   project_name = cloudflare_pages_project.hha.name
-  domain       = "hha.acearchive.lgbt"
+  domain       = "hha.${data.cloudflare_zone.acearchive.name}"
 }
