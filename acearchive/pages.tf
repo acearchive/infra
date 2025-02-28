@@ -3,15 +3,15 @@ resource "cloudflare_pages_project" "acearchive" {
   name              = "acearchive-lgbt"
   production_branch = "prod"
 
-  build_config {
-    build_command   = "npm install && npm run build"
+  build_config = {
+  build_command   = "npm install && npm run build"
     destination_dir = "public"
-  }
+}
 
-  source {
+  source =[ {
     type = "github"
 
-    config {
+    config =[ {
       owner                         = "acearchive"
       repo_name                     = "acearchive.lgbt"
       production_branch             = "prod"
@@ -20,23 +20,23 @@ resource "cloudflare_pages_project" "acearchive" {
       production_deployment_enabled = true
       preview_deployment_setting    = "custom"
       preview_branch_includes       = ["main"]
-    }
-  }
+    }]
+  }]
 
-  deployment_configs {
-    production {
-      environment_variables = {
+  deployment_configs = {
+  production = {
+  environment_variables = {
         HUGO_VERSION = "0.119.0"
       }
-    }
+}
 
-    preview {
-      environment_variables = {
+    preview = {
+  environment_variables = {
         HUGO_BASEURL = "/"
         HUGO_VERSION = "0.119.0"
       }
-    }
-  }
+}
+}
 }
 
 resource "cloudflare_pages_project" "hha" {
@@ -44,15 +44,15 @@ resource "cloudflare_pages_project" "hha" {
   name              = "hha-archive"
   production_branch = "main"
 
-  build_config {
-    build_command   = "bash ./build.sh"
+  build_config = {
+  build_command   = "bash ./build.sh"
     destination_dir = "public"
-  }
+}
 
-  source {
+  source =[ {
     type = "github"
 
-    config {
+    config =[ {
       owner                         = "acearchive"
       repo_name                     = "hha-archive"
       production_branch             = "main"
@@ -60,24 +60,24 @@ resource "cloudflare_pages_project" "hha" {
       deployments_enabled           = true
       production_deployment_enabled = true
       preview_deployment_setting    = "custom"
-    }
-  }
+    }]
+  }]
 
-  deployment_configs {
-    production {
-      environment_variables = {
+  deployment_configs = {
+  production = {
+  environment_variables = {
         GO_VERSION   = "1.21"
         NODE_VERSION = "18.18.2"
       }
-    }
+}
 
-    preview {
-      environment_variables = {
+    preview = {
+  environment_variables = {
         GO_VERSION   = "1.21"
         NODE_VERSION = "18.18.2"
       }
-    }
-  }
+}
+}
 }
 
 resource "cloudflare_pages_domain" "acearchive" {

@@ -40,28 +40,28 @@ resource "cloudflare_list_item" "acearchive_pages_dev_domain" {
   account_id = var.cloudflare_account_id
   list_id    = data.cloudflare_list.pages_dev_domains.id
 
-  redirect {
-    source_url            = "${cloudflare_pages_project.acearchive.subdomain}/"
+  redirect = {
+  source_url            = "${cloudflare_pages_project.acearchive.subdomain}/"
     target_url            = "https://${cloudflare_pages_domain.acearchive.domain}"
     status_code           = 301
     include_subdomains    = true
     preserve_query_string = true
     subpath_matching      = true
     preserve_path_suffix  = true
-  }
+}
 }
 
 resource "cloudflare_list_item" "hha_pages_dev_domain" {
   account_id = var.cloudflare_account_id
   list_id    = data.cloudflare_list.pages_dev_domains.id
 
-  redirect {
-    source_url            = "${cloudflare_pages_project.hha.subdomain}/"
+  redirect = {
+  source_url            = "${cloudflare_pages_project.hha.subdomain}/"
     target_url            = "https://${cloudflare_pages_domain.hha.domain}"
     status_code           = 301
     include_subdomains    = true
     preserve_query_string = true
     subpath_matching      = true
     preserve_path_suffix  = true
-  }
+}
 }

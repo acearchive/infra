@@ -10,7 +10,7 @@ resource "cloudflare_zone_dnssec" "acearchive" {
 resource "cloudflare_zone_settings_override" "acearchive" {
   zone_id = data.cloudflare_zone.acearchive.id
 
-  settings {
+  settings =[ {
     always_use_https         = "on"
     automatic_https_rewrites = "on"
     brotli                   = "on"
@@ -27,12 +27,12 @@ resource "cloudflare_zone_settings_override" "acearchive" {
     tls_1_3                  = "zrt"
     zero_rtt                 = "on"
 
-    security_header {
+    security_header =[ {
       enabled            = true
       preload            = true
       max_age            = 31536000
       include_subdomains = true
       nosniff            = true
-    }
-  }
+    }]
+  }]
 }
