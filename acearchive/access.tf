@@ -33,6 +33,7 @@ resource "cloudflare_zero_trust_access_policy" "acearchive_preview" {
 # domains to the main domain.
 data "cloudflare_list" "pages_dev_domains" {
   account_id = var.cloudflare_account_id
+  kind       = "hostname"
   name       = "pages_dev_domains"
 }
 

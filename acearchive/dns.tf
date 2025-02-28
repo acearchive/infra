@@ -1,8 +1,13 @@
+#
+# `ttl = 1` means "automatic".
+#
+
 resource "cloudflare_dns_record" "apex_cname" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "CNAME"
   name    = "@"
   content = cloudflare_pages_project.acearchive.subdomain
+  ttl     = 1
   proxied = true
 }
 
@@ -11,6 +16,7 @@ resource "cloudflare_dns_record" "dev_cname" {
   type    = "CNAME"
   name    = "dev"
   content = "main.${cloudflare_pages_project.acearchive.subdomain}"
+  ttl     = 1
   proxied = true
 }
 
@@ -19,6 +25,7 @@ resource "cloudflare_dns_record" "hha_cname" {
   type    = "CNAME"
   name    = "hha"
   content = cloudflare_pages_project.hha.subdomain
+  ttl     = 1
   proxied = true
 }
 
@@ -27,6 +34,7 @@ resource "cloudflare_dns_record" "umami_cname" {
   type    = "CNAME"
   name    = "umami"
   content = "truthful-silkworm.pikapod.net"
+  ttl     = 1
   proxied = false
 }
 
@@ -35,6 +43,7 @@ resource "cloudflare_dns_record" "www_aaaa" {
   type    = "AAAA"
   name    = "www"
   content = "100::"
+  ttl     = 1
   proxied = true
 }
 
@@ -43,6 +52,7 @@ resource "cloudflare_dns_record" "apex_txt_sl_verification" {
   type    = "TXT"
   name    = "@"
   content = "sl-verification=fxncjuftchgummqcrwzrpmyucobgvg"
+  ttl     = 1
   proxied = false
 }
 
@@ -63,6 +73,7 @@ resource "cloudflare_dns_record" "apex_mx" {
   name     = "@"
   content  = each.value.value
   priority = each.value.priority
+  ttl      = 1
   proxied  = false
 }
 
@@ -71,6 +82,7 @@ resource "cloudflare_dns_record" "apex_txt_spf" {
   type    = "TXT"
   name    = "@"
   content = "v=spf1 include:simplelogin.co ~all"
+  ttl     = 1
   proxied = false
 }
 
@@ -96,6 +108,7 @@ resource "cloudflare_dns_record" "apex_cname_dkim" {
   type    = "CNAME"
   name    = each.value.name
   content = each.value.value
+  ttl     = 1
   proxied = false
 }
 
@@ -104,5 +117,6 @@ resource "cloudflare_dns_record" "apex_txt_dmarc" {
   type    = "TXT"
   name    = "_dmarc"
   content = "v=DMARC1; p=quarantine; pct=100; adkim=s; aspf=s"
+  ttl     = 1
   proxied = false
 }
