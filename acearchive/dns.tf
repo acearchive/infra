@@ -1,4 +1,4 @@
-resource "cloudflare_record" "apex_cname" {
+resource "cloudflare_dns_record" "apex_cname" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "CNAME"
   name    = "@"
@@ -6,7 +6,7 @@ resource "cloudflare_record" "apex_cname" {
   proxied = true
 }
 
-resource "cloudflare_record" "dev_cname" {
+resource "cloudflare_dns_record" "dev_cname" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "CNAME"
   name    = "dev"
@@ -14,7 +14,7 @@ resource "cloudflare_record" "dev_cname" {
   proxied = true
 }
 
-resource "cloudflare_record" "hha_cname" {
+resource "cloudflare_dns_record" "hha_cname" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "CNAME"
   name    = "hha"
@@ -22,7 +22,7 @@ resource "cloudflare_record" "hha_cname" {
   proxied = true
 }
 
-resource "cloudflare_record" "umami_cname" {
+resource "cloudflare_dns_record" "umami_cname" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "CNAME"
   name    = "umami"
@@ -30,7 +30,7 @@ resource "cloudflare_record" "umami_cname" {
   proxied = false
 }
 
-resource "cloudflare_record" "www_aaaa" {
+resource "cloudflare_dns_record" "www_aaaa" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "AAAA"
   name    = "www"
@@ -38,7 +38,7 @@ resource "cloudflare_record" "www_aaaa" {
   proxied = true
 }
 
-resource "cloudflare_record" "apex_txt_sl_verification" {
+resource "cloudflare_dns_record" "apex_txt_sl_verification" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "TXT"
   name    = "@"
@@ -46,7 +46,7 @@ resource "cloudflare_record" "apex_txt_sl_verification" {
   proxied = false
 }
 
-resource "cloudflare_record" "apex_mx" {
+resource "cloudflare_dns_record" "apex_mx" {
   for_each = {
     route1 = {
       value    = "mx1.simplelogin.co."
@@ -66,7 +66,7 @@ resource "cloudflare_record" "apex_mx" {
   proxied  = false
 }
 
-resource "cloudflare_record" "apex_txt_spf" {
+resource "cloudflare_dns_record" "apex_txt_spf" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "TXT"
   name    = "@"
@@ -74,7 +74,7 @@ resource "cloudflare_record" "apex_txt_spf" {
   proxied = false
 }
 
-resource "cloudflare_record" "apex_cname_dkim" {
+resource "cloudflare_dns_record" "apex_cname_dkim" {
   for_each = {
     record1 = {
       name  = "dkim._domainkey"
@@ -99,7 +99,7 @@ resource "cloudflare_record" "apex_cname_dkim" {
   proxied = false
 }
 
-resource "cloudflare_record" "apex_txt_dmarc" {
+resource "cloudflare_dns_record" "apex_txt_dmarc" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "TXT"
   name    = "_dmarc"
