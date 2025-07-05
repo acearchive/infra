@@ -1,19 +1,3 @@
-resource "cloudflare_record" "apex_cname" {
-  zone_id = data.cloudflare_zone.acearchive.id
-  type    = "CNAME"
-  name    = "@"
-  content = cloudflare_pages_project.acearchive.subdomain
-  proxied = true
-}
-
-resource "cloudflare_record" "dev_cname" {
-  zone_id = data.cloudflare_zone.acearchive.id
-  type    = "CNAME"
-  name    = "dev"
-  content = "main.${cloudflare_pages_project.acearchive.subdomain}"
-  proxied = true
-}
-
 resource "cloudflare_record" "hha_cname" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "CNAME"
