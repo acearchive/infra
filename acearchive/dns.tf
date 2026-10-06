@@ -14,6 +14,22 @@ resource "cloudflare_record" "omeka_aaaa" {
   proxied = false
 }
 
+resource "cloudflare_record" "connector_a" {
+  zone_id = data.cloudflare_zone.acearchive.id
+  type    = "A"
+  name    = "connector"
+  content = "97.107.140.18"
+  proxied = false
+}
+
+resource "cloudflare_record" "connector_aaaa" {
+  zone_id = data.cloudflare_zone.acearchive.id
+  type    = "AAAA"
+  name    = "connector"
+  content = "2600:3c03::2000:21ff:fef7:8b8a"
+  proxied = false
+}
+
 resource "cloudflare_record" "hha_cname" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "CNAME"
