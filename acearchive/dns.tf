@@ -30,20 +30,28 @@ resource "cloudflare_record" "connector_aaaa" {
   proxied = false
 }
 
+resource "cloudflare_record" "umami_a" {
+  zone_id = data.cloudflare_zone.acearchive.id
+  type    = "A"
+  name    = "umami"
+  content = "97.107.140.18"
+  proxied = false
+}
+
+resource "cloudflare_record" "umami_aaaa" {
+  zone_id = data.cloudflare_zone.acearchive.id
+  type    = "AAAA"
+  name    = "umami"
+  content = "2600:3c03::2000:21ff:fef7:8b8a"
+  proxied = false
+}
+
 resource "cloudflare_record" "hha_cname" {
   zone_id = data.cloudflare_zone.acearchive.id
   type    = "CNAME"
   name    = "hha"
   content = cloudflare_pages_project.hha.subdomain
   proxied = true
-}
-
-resource "cloudflare_record" "umami_cname" {
-  zone_id = data.cloudflare_zone.acearchive.id
-  type    = "CNAME"
-  name    = "umami"
-  content = "truthful-silkworm.pikapod.net"
-  proxied = false
 }
 
 resource "cloudflare_record" "www_aaaa" {
