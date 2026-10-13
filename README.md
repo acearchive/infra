@@ -1,4 +1,4 @@
-**[DEPRECATED]: This repo has been superseded by [acearchive/services](https://github.com/acearchive/services).**
+⚠️ **[DEPRECATED]: This repo has been superseded by [acearchive/services](https://github.com/acearchive/services).**
 
 # infra
 
