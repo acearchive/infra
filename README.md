@@ -1,3 +1,5 @@
+**[DEPRECATED]: This repo has been superseded by [acearchive/services](https://github.com/acearchive/services).**
+
 # infra
 
 This repository contains the [Terraform](https://www.terraform.io/) config for
